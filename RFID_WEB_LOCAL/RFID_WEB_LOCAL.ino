@@ -71,8 +71,10 @@ byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 // if you don't want to use DNS (and reduce your sketch size)
 // use the numeric IP instead of the name for the server:
 //IPAddress server(74,125,232,128);  // numeric IP for Google (no DNS)
-char server[] = "mydomain.com";    // name address for Google (using DNS)
-String serverName = "mydomain.com";
+//char server[] = "mydomain.com";    // name address for Google (using DNS)
+//String serverName = "mydomain.com";
+  
+String serverName = "www.mydomain.com"; // name address for Google (using DNS)
 
 // Set the static IP address to use if the DHCP fails to assign
 IPAddress ip(192, 168, 0, 177);
@@ -165,13 +167,13 @@ void setup() {
   // give the Ethernet shield a second to initialize:
   delay(1000);
   Serial.print("connecting to ");
-  Serial.print(server);
+  Serial.print(serverName);
   Serial.println("...");
 
 }
 
 void getDatas(String uid, String UniqueIDString) {
-  if (client.connect(server, 80)) {
+  if (client.connect(serverName.c_str(), 80)) {
     Serial.print("connected to ");
     Serial.println(client.remoteIP());
     file_loc = "/PHPproject/arduino/arduino_postman/rfid_test.php";
@@ -186,7 +188,7 @@ void getDatas(String uid, String UniqueIDString) {
 }
 
 void shouldOpenDoor(String UniqueIDString) {
-  if (client.connect(server, 80)) {
+  if (client.connect(serverName.c_str(), 80)) {
     //Serial.println("Shouldopendoor");
     req = "GET /PHPproject/arduino/arduino_postman/open_door.php?arduino_id=" + UniqueIDString + " HTTP/1.1";
     client.println(req);
@@ -199,8 +201,8 @@ void shouldOpenDoor(String UniqueIDString) {
 void loop() {
   //Serial.println(loop_counter);
   loop_counter++;
-    shouldOpenDoor(UniqueIDString);
   if (loop_counter > 300) {
+    shouldOpenDoor(UniqueIDString);
     loop_counter = 0;
   }
   
