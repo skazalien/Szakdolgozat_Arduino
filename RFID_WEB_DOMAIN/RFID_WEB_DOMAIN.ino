@@ -81,7 +81,6 @@ byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 // use the numeric IP instead of the name for the server:
 //IPAddress server(74,125,232,128);  // numeric IP for Google (no DNS)
 //char server[] = "mydomain.com";    // name address for Google (using DNS)
-//String serverName = "mydomain.com";
 
 String serverName = "www.mydomain.com"; // name address for Google (using DNS)
 
