@@ -112,7 +112,6 @@ const int kNetworkDelay = 1000;
 
 void setup() {
 
-
   // You can use Ethernet.init(pin) to configure the CS pin
   Ethernet.init(10);  // Most Arduino shields
   //Ethernet.init(5);   // MKR ETH shield
@@ -126,7 +125,6 @@ void setup() {
   Serial.print("Arduino SN: ");
   ///////////////////////////////////////////////////////////////////////Arduino SN///////////////////////////////////////////////////////////////////////
   UniqueIDdump(Serial);  // Prints "UniqueID: 55 35 35 33 31 30 0D 1A 25"
-
 
   byte index = 0;
   for (size_t i = 0; i < UniqueIDsize; i++)
@@ -152,7 +150,6 @@ void setup() {
   //pinMode(4, OUTPUT);             //kék
   pinMode(5, OUTPUT);             //zöld
   pinMode(6, OUTPUT);             //piros
-
 
   Serial.println(F("This code scan the MIFARE Classsic NUID."));
 
