@@ -83,7 +83,7 @@ byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 //char server[] = "mydomain.com";    // name address for Google (using DNS)
 //String serverName = "mydomain.com";
 
-String serverName = "www.danbalazs.hu"; // name address for Google (using DNS)
+String serverName = "www.mydomain.com"; // name address for Google (using DNS)
 
 // Set the static IP address to use if the DHCP fails to assign
 IPAddress ip(192, 168, 0, 177);
